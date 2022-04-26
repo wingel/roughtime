@@ -105,3 +105,45 @@ implementation](https://roughtime.googlesource.com/roughtime/).
 No uptime is guaranteed, but the server is constantly monitored for accuracy and
 availability. From time to time, there may be a few minutes of downtime for
 server maintenance.
+
+
+# *.roughtime.netnod.se
+
+[Netnod](http://netnod.se/) operates multiple roughtime servers using
+[Marcus Dansarie's C implementation of roughtime](https://github.com/dansarie/roughtimed).
+
+These roughtime servers use Netnod's NTP servers as a time
+source. Netnod’s NTP servers are located at six sites around
+Sweden. Each site has two redundant caesium clocks providing time to
+two redundant stratum 1 NTP servers. Netnod are committed to providing
+robust time services and will keep our roughtime servers running for
+the foreseeable future. Netnod are also planning to add more roughtime
+servers in the future. The goal is to have two redundant roughtime
+servers at each site which provides Netnod's NTP services.
+
+Note that Netnod's servers use draft-ietf-ntp-roughtime-05 of the
+protocol and do not support earlier versions of the protocol.
+Netnod's severs do not perform leap smearing.
+
+The current list of production servers listed in ecosystem.json are:
+
+* sth1.roughtime.netnod.se:2002 with public key 9l1JN4HakGnG44yyqyNNCb0HN0XfsysBbnl/kbZoZDc=
+
+* sth2.roughtime.netnod.se:2002 with public key T/xxX4ERUBAOpt64Z8phWamKsASZxJ0VWuiPm3GS/8g=
+
+Netnod also has a staging environment for roughtime which is not
+present in ecosystem.json. At times it may run test code which can be
+unstable and should not be relied on for production use. Netnod would
+appreciate if you do test the lab service though and report any issues
+to us at email time@netnod.se.
+
+* lab.roughtime.netnod.se:2002 with public key tAPsQc3D36mJPOX1/LLNbV0M3fuTPjwW54mGvw+V1hE=
+
+Finally Netnod runs a server called "falseticker" which will provide
+incorrect time. This is intentional and can be used to test the clock
+selection algorithm in a roughtime client. This service listens to
+ports 2000-2009 with varying levels of incorrectness. Needless to say,
+this server should not be used in production but can be useful for
+testing the roughtime selection algorithms.
+
+* falseticker.roughtime.netnod.se with public key iFY9glIn8SHGtkFTdUECYdC37T4PNM2YSFzjbEbmfZI=

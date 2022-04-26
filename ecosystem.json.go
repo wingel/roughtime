@@ -73,4 +73,26 @@ var Ecosystem = []config.Server{
 			},
 		},
 	},
+	{
+		Name:          "sth1.roughtime.netnod.se",
+		PublicKeyType: "ed25519",
+		PublicKey:     []byte{246, 93, 73, 55, 129, 218, 144, 105, 198, 227, 140, 178, 171, 35, 77, 9, 189, 7, 55, 69, 223, 179, 43, 1, 110, 121, 127, 145, 182, 104, 100, 55},
+		Addresses: []config.ServerAddress{
+			{
+				Protocol: "udp",
+				Address:  "sth1.roughtime.netnod.se:2002",
+			},
+		},
+	},
+	{
+		Name:          "sth2.roughtime.netnod.se",
+		PublicKeyType: "ed25519",
+		PublicKey:     []byte{79, 252, 113, 95, 129, 17, 80, 16, 14, 166, 222, 184, 103, 202, 97, 89, 169, 138, 176, 4, 153, 196, 157, 21, 90, 232, 143, 155, 113, 146, 255, 200},
+		Addresses: []config.ServerAddress{
+			{
+				Protocol: "udp",
+				Address:  "sth2.roughtime.netnod.se:2002",
+			},
+		},
+	},
 }
